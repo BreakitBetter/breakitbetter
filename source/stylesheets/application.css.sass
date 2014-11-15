@@ -1,4 +1,127 @@
+$base-font-size: 24px
+$sans:  'Verlag A', 'Verlag B'
+$serif: 'Quarto A', 'Quarto B'
+
 body
-  font-family: 'Quarto A', 'Quarto B'
+  font-family: $serif
   font-weight: 400
   font-style: normal
+  font-size: $base-font-size
+  line-height: 1.4
+
+// Typography
+
+
+
+
+.container 
+  width: 46em
+  margin: 0 auto
+
+.cover
+  background: rgb(82,236,231)
+  padding: 3em 0 7em 0
+
+  .category
+    font-family: $sans
+    font-weight: 800
+    font-size: $base-font-size*0.75
+    text-decoration: none
+
+  h1 
+    font-size: 3em
+    font-weight: 800
+    line-height: 1.2
+    margin: 0 0 $base-font-size 0
+
+  .dateline
+    font-style: italic
+    margin: 0 0 1.5em 0
+
+
+.standfirst
+  border-top: 1px solid #000
+
+  h2 
+    font-size: 1.5em
+    width: 66%
+    font-weight: 300
+  
+
+.page
+  background: rgb(255,255,255)
+  margin-top: -6em
+
+.page-inner
+  padding: 3em 2em
+
+
+
+.main-run 
+  margin:  0 auto 
+  max-width: 34em
+  
+  >p
+    margin: 0 0 1.25em 0
+    &>a
+      text-decoration: none
+      color: inherit
+      border-bottom: 1px solid rgb(82,236,231)
+      &:hover
+        color: darken(rgb(82,236,231), 5%)
+
+  >h3,
+  >h4,
+  >h5
+    margin: 1.75em 0 1em 0
+  >h5
+    font-family: $sans
+
+  >ul, 
+  >ol 
+    margin: 0 0 1.25em 0
+    padding: 0 1em
+    li
+      margin: 0 0 0.75em 0
+
+  >blockquote
+    border-left: 1px solid #ccc
+    margin: 1.75em 1.25em
+    padding: 0 1.25em
+    font-style: italic
+    p
+      &:before
+        content: "\201C"
+      &:after
+        content: "\201D"
+    >span
+      display: block
+      text-align: right
+      color: #666
+      font-size: 0.75em
+      font-style: normal
+      &:before
+        content: "—"
+        margin-right: 0.25em
+
+  >hr
+    border: 0
+    outline: none
+    &:after
+      content: "***"
+      letter-spacing: 5px
+      display: block
+      text-align: center
+      font-weight: 800
+      margin: 2.5em 0
+  
+  >.pullquote
+    font-size: 1.5em
+    border-top: 1px solid rgb(82,236,231)
+    border-bottom: 1px solid rgb(82,236,231)
+    padding: 0.5em 0  0.75em 0
+    font-weight: 800
+    line-height: 1.2
+    margin: 0 -1.25em 1em -1.25em
+    font-style: italic
+    padding: 1em
