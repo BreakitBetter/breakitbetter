@@ -2,21 +2,26 @@
 pageable: true
 per_page: 10
 ---
-<header>
-  <nav>
-    <a href="">Break it Better</a>
-    <a href="">Articles</a>
-    <a href="">About</a>
-    <a href="">Twitter</a>
-  </nav>
-</header>
-
 <article>
 
+  
+
   <header class="cover">
+    <nav class="site-nav">
+      <div class="logo">
+        <a href="">Break it Better</a>
+      </div>
+      
+      <div class="links">
+        <a href="">Articles</a>
+        <a href="">About</a>
+      </div>
+      
+    </nav>
+
     <div class="container">
       <a class="category" href="">Being a designer</a>
-      <h1>Towards business goals &amp; away from 'put a button here' mentality</h1>
+      <h1>Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</h1>
       <p class="dateline">November 24, 2014 &mdash; London</p>
       <div class="standfirst">
         <h2>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </h2>
@@ -42,6 +47,10 @@ per_page: 10
         </ol>
 
 
+        <%= image_tag "test-image-2.jpeg", :class => "oversized" %>
+
+        <p class="caption">My lovely wife doing here thing. Photo: Martin McKenna</p>  
+
 
         <p>Have you ever watched an out-half in a game of rugby tap both toes on the grass before stepping up to kick? These are meaningless taps. No flight of a ball has ever been affected by them. They play no part in the concerto of human form and physics that sends an inflated oval soaring between two uprights.</p>
 
@@ -57,6 +66,9 @@ per_page: 10
         </ul>
 
         <p>Those first marks I make on that pristine leaf are my meaningless taps. They are everything and nothing.They are a mental commitment, a reset, a firing of engines and a tentative first step all rolled into one. To date, they have yet to produce an instantaneous and original masterpiece, but everything I design flows from them. Most of then have ended up in the trash.</p>
+
+        <%= image_tag "test-image-2.jpeg"%>
+        <p class="caption">My lovely wife doing here thing. Photo: Martin McKenna</p>  
 
         <hr/>
 
@@ -74,6 +86,8 @@ per_page: 10
 
         <p>F. Scott Fitzgerald’s The Great Gatsby is released in cinemas again this week — the 5th attempt at filming that unfilmable book. In an essay in this month’s Esquire, Andrew O’Hagan quotes one of Fitzgerald’s letters, written while he was wrangling with Gatsby.
         In it Fitzgerald captures the acute mental agony of those first scrapes of nib across paper, but also their infinite promise to be better than all that has gone before:</p>
+
+        <%= image_tag "test-image.png"%>
 
         <p>Those first marks I make on that pristine leaf are my meaningless taps. They are everything and nothing.They are a mental commitment, a reset, a firing of engines and a tentative first step all rolled into one. To date, they have yet to produce an instantaneous and original masterpiece, but everything I design flows from them. Most of then have ended up in the trash.</p>
 
@@ -94,12 +108,41 @@ per_page: 10
 
 <section class="related-articles">
   <div class="container">
-    Related articles
+
+    <h2>Related articles</h2>
+    <ul>
+      <li class="featured">
+        <a href="" class="related-article">
+          <article>
+            <span class="category">Product</span>
+            <blockquote>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </blockquote>
+            <p>&mdash; Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</p>
+          </article>
+        </a>
+      <li>
+        <a href="" class="related-article">
+          <article>
+            <span class="category">Product</span>
+            <h1>Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</h1>
+            <p>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </p> 
+          </article>
+        </a>
+      </li>
+      <li>
+        <a href="" class="related-article last">
+          <article>
+            <span class="category">Product</span>
+            <h1>Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</h1>
+            <p>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </p> 
+          </article>
+        </a>
+  
+    </ul>
   </div>
   
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="container">
     Site footer
   </div>
