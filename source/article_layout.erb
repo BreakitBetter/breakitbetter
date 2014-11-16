@@ -1,0 +1,83 @@
+<% wrap_layout :layout do %>
+  article renders <br/>
+  
+  <article>
+
+    <header class="cover">
+      <%= partial "partials/nav" %>
+
+      <div class="container">
+        <a class="category" href=""><%= current_article.data.category %></a>
+        <h1><%= current_article.title %></h1>
+        <p class="dateline">written by <%= current_article.data.author %> &mdash; <%= current_article.date.strftime('%A, %e %B  %Y') %> &mdash; <%= current_article.data.location %></p>
+        <div class="standfirst">
+          <h2><%= current_article.data.standfirst %></h2>
+          <div class="sharing"></div>
+        </div>  
+      </div>
+    </header>
+    
+    <section class="page container">
+      <div class="page-inner">
+        <div class="main-run">
+          <%= yield %>
+          <footer class="tags">
+            Tagged as:
+            <% current_article.tags.each do |tag|  %>
+              <%= link_to tag, tag_path(tag), class: 'tag' %>
+            <% end %>
+          </footer>
+
+          <div id="disqus_thread"></div>
+
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <div class="container">
+    <section class="article-grid">
+      <h2>Related articles</h2>
+      <ul class="related-articles">
+        <li class="featured">
+          <a href="" class="related-article">
+            <article>
+              <span class="category">Product</span>
+              <blockquote>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </blockquote>
+              <p>&mdash; Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</p>
+            </article>
+          </a>
+        <li>
+          <a href="" class="related-article">
+            <article>
+              <span class="category">Product</span>
+              <h1>Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</h1>
+              <p>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </p> 
+            </article>
+          </a>
+        </li>
+        <li>
+          <a href="" class="related-article last">
+            <article>
+              <span class="category">Product</span>
+              <h1>Towards business goals <i>&amp;</i> away from ‘put a button here’ mentality</h1>
+              <p>Designers, this is the paradox we live. A blank page is life and death to the us, as it is life and death to the writer. A cruel taunting adversary and a whispering. </p> 
+            </article>
+          </a>
+    
+      </ul>
+    </section>
+  </div>
+  <script type="text/javascript">
+      
+    var disqus_shortname = 'breakitbetter';
+
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+
+<% end %>

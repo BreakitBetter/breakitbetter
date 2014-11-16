@@ -70,8 +70,14 @@ body
   padding: 0em 0 7em 0
   position: relative
 
+  &.about
+    background-image: url('')
+
   &.index
     padding-bottom: 4em
+
+  &.category
+    padding-bottom: 2em
 
   .category
     font-family: $sans
@@ -236,6 +242,13 @@ body
 
 .article-grid
   border-top: 12px solid #000
+
+  &.three-col
+    border-top: 0px solid #fff
+    li
+      width: 33.333%
+
+
   h2
     font-size: 1.5em
     position: relative
@@ -338,8 +351,12 @@ body
     font-family: $sans
 
 .editedby
-  padding: 2.5em 2.5em 2.755em 8.5em
-  background: blue
+  padding: 2.5em 2.5em 2.755em 2.5em
+  background-color: blue
+  background-image: url('/images/gearoid.png')
+  background-repeat: no-repeat
+  background-size: auto 120%
+  background-position: top right
   margin: 0 0 2.5em 0
   p
     margin: 0

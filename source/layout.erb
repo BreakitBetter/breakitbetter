@@ -1,56 +1,25 @@
 <!doctype html>
 <html>
   <head>
-    
     <meta charset="utf-8" />
-    
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-    
-    <title>Blog Title<%= ' - ' + current_article.title unless current_article.nil? %></title>
-
-    <!-- Always force latest IE rendering engine or request Chrome Frame -->
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    
-    
-    
+    <title><%= current_article.title + "-" unless current_article.nil? %> Break it Better</title>
     <link rel="stylesheet" type="text/css" href="//cloud.typography.com/7685452/745026/css/fonts.css" />
-
     <%= stylesheet_link_tag "normalize", "all" %>
     <%= stylesheet_link_tag "application" %>
-
     <%= javascript_include_tag  "all" %>
-
     <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
-
   </head>
-  <body>
-
+  <body class="<%= current_article.data.category.downcase.gsub(/\s+/, "_").html_safe unless current_article.nil? %>">
+   layout renders<br/>
+    <%= yield %>
     
-    
-      <%= yield %>
-    
-    
-    <!-- <aside>
-      <h2>Recent Articles</h2>
-      <ol>
-        <% blog.articles[0...10].each do |article| %>
-          <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-        <% end %>
-      </ol>
-
-      <h2>Tags</h2>
-      <ol>
-        <% blog.tags.each do |tag, articles| %>
-          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
-        <% end %>
-      </ol>
-
-      <h2>By Year</h2>
-      <ol>
-        <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
-        <% end %>
-      </ol>
-    </aside> -->
+    <footer class="site-footer">
+      <%= partial "partials/nav" %>
+      <div class="container">
+        <p class="copyright">Copyright Gearóid O'Rourke 2014. The type is set in Quarto 16/22</p>
+      </div>    
+    </footer>
+  
   </body>
 </html>
