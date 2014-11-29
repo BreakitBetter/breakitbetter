@@ -1,19 +1,129 @@
-index renders <br/>
+<article>
+  <header class="cover">
+    <%= partial "partials/nav" %>
+    <div class="container">
+      <a class="category" href="<%= category_path("#{blog.articles.first.data.category}") %>"><%= blog.articles.first.data.category %></a>
+      <h1><%= blog.articles.first.title %></h1>
+      <p class="dateline">written by <%= blog.articles.first.data.author %> &mdash; <%= blog.articles.first.date.strftime('%A, %e %B  %Y') %> &mdash; <%= blog.articles.first.data.location %></p>
+      <div class="standfirst">
+        <h2><%= blog.articles.first.data.standfirst %></h2>
+        <div class="sharing">
+          <a class="readmore" href="<%= blog.articles.first.url %>">Read in full</a> 
+        </div>
+      </div> 
+    </div>
+  </header>
+</article>
 
+<% abc = blog.articles.group_by {|a| a.metadata[:page]['category']} %>
 
+<% abc.take(1).each do | category, articles | %>
+<div class="container">
+  <section class="article-grid">
+    <h2>
+      On <%= category.downcase.to_s %>
+      <%= link_to 'View all', "category/#{category.downcase}" %>
+    </h2>
+    <ul class="related-articles">
+      <% articles.take(2).each do |article| %>
+        <li>
+          <a href="<%= article.url %>" class="related-article">
+            <article>
+              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <h1><%= article.title %></h1>
+              <p><%= article.data.standfirst %></p> 
+            </article>
+          </a>
+        </li>
+      <% end %>
+      <% articles.drop(2).take(1).each do |article| %>
+        <li class="featured">
+          <a href="<%= article.url %>" class="related-article">
+            <article>
+              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <blockquote><%= article.data.quote %></blockquote>
+              <p>&mdash; <%= article.title %></p>
+            </article>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
+<% end %>
 
+<% abc.drop(1).take(1).each do | category, articles | %>
+<div class="container">
+  <section class="article-grid">
+    <h2>
+      On <%= category.downcase.to_s %>
+      <%= link_to 'View all', "category/#{category.downcase}" %>
+    </h2>
+    <ul class="related-articles">
+    <% articles.take(1).each do |article| %>
+      <li class="featured">
+        <a href="<%= article.url %>" class="related-article">
+          <article>
+            <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+            <blockquote><%= article.data.quote %></blockquote>
+            <p>&mdash; <%= article.title %></p>
+          </article>
+        </a>
+      </li>
+    <% end %>
+      <% articles.drop(1).take(2).each do |article| %>
+        <li>
+          <a href="<%= article.url %>" class="related-article">
+            <article>
+              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <h1><%= article.title %></h1>
+              <p><%= article.data.standfirst %></p> 
+            </article>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
+<% end %>
 
+<div class="container">
+  <section class="editedby">
+    <p><span class="wordmark">Break it Better</span> is written by Gearóid, a London-based designer. <a href="">Find out more </a> </p>
+  </section>
+</div>
 
-
-
-<% blog.articles[0...1].each do |article| %>
-  <article>
-    <h1>
-      <a href="<%= article.url %>"><%= article.title %></a>
-      <time><%= article.date.strftime('%b %e %Y') %></time>
-    </h1>
-
-
-    <a href="<%= article.url %>">Read more</a>
-  </article>
+<% abc.drop(2).take(1).each do | category, articles | %>
+<div class="container">
+  <section class="article-grid">
+    <h2>
+      On <%= category.downcase.to_s %>
+      <%= link_to 'View all', "category/#{category.downcase}" %>
+    </h2>
+    <ul class="related-articles">
+      <% articles.take(2).each do |article| %>
+        <li>
+          <a href="<%= article.url %>" class="related-article">
+            <article>
+              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <h1><%= article.title %></h1>
+              <p><%= article.data.standfirst %></p> 
+            </article>
+          </a>
+        </li>
+      <% end %>
+      <% articles.drop(2).take(1).each do |article| %>
+        <li class="featured">
+          <a href="<%= article.url %>" class="related-article">
+            <article>
+              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <blockquote><%= article.data.quote %></blockquote>
+              <p>&mdash; <%= article.title %></p>
+            </article>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>
 <% end %>

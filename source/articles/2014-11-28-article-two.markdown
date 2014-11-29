@@ -1,8 +1,8 @@
 ---
-title: Business goals, not feature requests
+title: article two
 standfirst: Standfirst
 quote: The quote
-date: 2014-11-24
+date: 2014-11-28
 category: Design
 tags: product, design, startups, management 
 author: Gearóid O'Rourke

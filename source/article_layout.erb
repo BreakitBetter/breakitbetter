@@ -1,18 +1,26 @@
-<% wrap_layout :layout do %>
-  article renders <br/>
-  
+<% wrap_layout :layout do %>  
   <article>
 
     <header class="cover">
       <%= partial "partials/nav" %>
 
       <div class="container">
-        <a class="category" href=""><%= current_article.data.category %></a>
+        <a class="category" href="<%= category_path("#{current_article.data.category}") %>"><%= current_article.data.category %></a>
         <h1><%= current_article.title %></h1>
         <p class="dateline">written by <%= current_article.data.author %> &mdash; <%= current_article.date.strftime('%A, %e %B  %Y') %> &mdash; <%= current_article.data.location %></p>
         <div class="standfirst">
           <h2><%= current_article.data.standfirst %></h2>
-          <div class="sharing"></div>
+          <div class="sharing">
+            <a class="twitter-share-button" href="https://twitter.com/share"
+              data-related="@gearoidorourke"
+              data-size="large"
+              data-count="vertical"
+              data-hastags="#breakitbetter"
+              data-via="breakitbetter">
+            Tweet
+            </a>
+            
+          </div>
         </div>  
       </div>
     </header>

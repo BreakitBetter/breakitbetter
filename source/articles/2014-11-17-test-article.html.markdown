@@ -1,7 +1,7 @@
 ---
 title: Test article
 date: 2014-11-17
-tags: product, design, startups, management 
+tags: product
 category: product
 author: Gearoid O'Rourke
 ---

@@ -2,32 +2,28 @@
   <header class="cover category">
     <%= partial "partials/nav" %>
     <div class="container">
-      <span class="category" >Category archive</span>
-      <h1>On <%= category.downcase %></h1>
+      <span class="category" >The full archive</span>
+      <h1>All articles</h1>
 
     </div>
   </header>
-  
-  
-
-  
-
 </article>
 
 <div class="container">
   <section class="article-grid three-col">
     <ul class="related-articles">
-      <% articles.each do |article| %>
+      <% blog.articles.each do |article| %>
         <li>
           <a href="<%= article.url %>" class="related-article">
             <article>
-              <span class="category"><%= article.date.strftime('%A, %e %B  %Y')%></span>
+              <span class="category"><%= article.data.category%></span>
               <h1><%= article.title %></h1>
               <p><%= article.data.standfirst %></p> 
             </article>
           </a>
         </li>
       <% end %>
+
     </ul>
   </section>
 </div>
